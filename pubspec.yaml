@@ -49,9 +49,15 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
   mocktail: ^1.0.4
+  widget_driver_test: ^1.0.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+
+dependency_overrides:
+  mocktail: ^1.0.4
+
+
 
 # The following section is specific to Flutter packages.
 flutter:
