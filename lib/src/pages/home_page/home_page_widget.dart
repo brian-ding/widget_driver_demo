@@ -12,17 +12,16 @@ class HomePageWidget extends DrivableWidget<HomePageWidgetDriver> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text(
-          'this is the home page',
+        Text(
+          driver.title,
         ),
         ElevatedButton(
-          onPressed: () {
-            driver.onButtonPressed(
-              context,
-            );
-          },
+          key: const Key('button-key'),
+          onPressed: () => driver.onButtonPressed(
+            context,
+          ),
           child: const Text(
-            'to second',
+            'Press',
           ),
         ),
       ],
