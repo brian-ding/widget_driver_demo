@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'second_page_wdiget.dart';
+import 'second_page_widget.dart';
 
 class SecondPageRoute extends MaterialPageRoute {
   SecondPageRoute()

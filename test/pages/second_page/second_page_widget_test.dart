@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:widget_driver_demo/src/pages/second_page/second_page_wdiget.dart';
+import 'package:widget_driver_demo/src/pages/second_page/second_page_widget.dart';
 
 main() {
   group(
