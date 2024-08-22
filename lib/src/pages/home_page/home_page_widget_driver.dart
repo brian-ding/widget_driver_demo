@@ -9,7 +9,9 @@ class HomePageWidgetDriver extends SoWidgetDriver {
   late String _title = 'hello,';
   late ISoNavigator _navigator;
 
-  HomePageWidgetDriver({required super.resolver});
+  HomePageWidgetDriver({
+    required super.resolver,
+  });
 
   String get title => _title;
 
@@ -25,7 +27,7 @@ class HomePageWidgetDriver extends SoWidgetDriver {
 
   @override
   void didUpdateBuildContext(BuildContext context) {
-    _navigator = resolver.resolve<ISoNavigator>(context);
+    _navigator = resolver.read<ISoNavigator>(context);
   }
 }
 

@@ -27,7 +27,7 @@ void main() {
           final navigator = SoNavigatorMock();
           final resolver = SoResolverMock();
           when(
-            () => resolver.resolve<ISoNavigator>(context),
+            () => resolver.read<ISoNavigator>(context),
           ).thenReturn(
             navigator,
           );
@@ -57,7 +57,7 @@ void main() {
           final navigator = SoNavigatorMock();
           final resolver = SoResolverMock();
           when(
-            () => resolver.resolve<ISoNavigator>(context),
+            () => resolver.read<ISoNavigator>(context),
           ).thenReturn(
             navigator,
           );
