@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:widget_driver/widget_driver.dart';
+import 'package:widget_driver_demo/src/pages/home_page/home_page.dart';
 import 'package:widget_driver_demo/src/pages/home_page/home_page_widget.dart';
 import 'package:widget_driver_demo/src/pages/home_page/home_page_widget_driver.dart';
 
@@ -71,6 +72,23 @@ main() {
             () => driver.onButtonPressed(any<BuildContext>()),
           ).called(
             1,
+          );
+        },
+      );
+
+      test(
+        'should get correct driver provider',
+        () {
+          // arrange
+          final widget = HomePageWidget();
+
+          // act
+          final provider = widget.driverProvider;
+
+          // assert
+          expect(
+            provider,
+            isA<HomePageWidgetDriverProvider>(),
           );
         },
       );

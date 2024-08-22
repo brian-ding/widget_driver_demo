@@ -1,7 +1,6 @@
 import 'package:widget_driver/widget_driver.dart';
 
 import '../../navigation/navigation.dart';
-import '../../resolver/resolver.dart';
 import '../../widget_driver/widget_driver.dart';
 import '../second_page/second_page.dart';
 
@@ -17,31 +16,17 @@ class HomePageWidgetDriver extends SoWidgetDriver {
 
   onButtonPressed(BuildContext context) {
     final route = SecondPageRoute();
-    _navigator.navigateTo(
+    _navigator.to(
       context,
       route,
     );
 
     _title = 'world!';
+    notifyWidget();
   }
 
   @override
   void didUpdateBuildContext(BuildContext context) {
     _navigator = resolver.read<ISoNavigator>(context);
-  }
-}
-
-class HomePageWidgetDriverProvider extends WidgetDriverProvider<HomePageWidgetDriver> {
-  @override
-  HomePageWidgetDriver buildDriver() {
-    return HomePageWidgetDriver(
-      resolver: SoResolver(),
-    );
-  }
-
-  @override
-  HomePageWidgetDriver buildTestDriver() {
-    // TODO: implement buildTestDriver
-    throw UnimplementedError();
   }
 }

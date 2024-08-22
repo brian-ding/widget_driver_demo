@@ -9,6 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:widget_driver_demo/src/pages/home_page/home_page.dart';
 import 'package:widget_driver_demo/src/navigation/navigation.dart';
+import 'package:widget_driver_demo/src/pages/home_page/home_page_widget.dart';
 import 'package:widget_driver_demo/src/pages/second_page/second_page_route.dart';
 
 import '../../mocks/mocks.dart';
@@ -39,7 +40,7 @@ void main() {
 
           // assert
           verify(
-            () => navigator.navigateTo(
+            () => navigator.to(
               context,
               any<SecondPageRoute>(),
             ),
@@ -71,6 +72,24 @@ void main() {
           expect(
             driver.title,
             'world!',
+          );
+        },
+      );
+
+      test(
+        'should show default title',
+        () {
+          // arrange
+          final resolver = SoResolverMock();
+          final driver = HomePageWidgetDriver(resolver: resolver);
+
+          // act
+          final title = driver.title;
+
+          // assert
+          expect(
+            title,
+            'hello,',
           );
         },
       );
