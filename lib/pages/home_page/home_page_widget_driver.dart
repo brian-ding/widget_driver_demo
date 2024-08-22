@@ -1,15 +1,30 @@
 import 'package:widget_driver/widget_driver.dart';
 
+import '../../navigation/navigation.dart';
 import '../../resolver/resolver.dart';
 import '../../widget_driver/widget_driver.dart';
+import '../second_page/second_page.dart';
 
 class HomePageWidgetDriver extends SoWidgetDriver {
   final String _title = 'hello, world!';
+  late ISoNavigator _navigator;
+
   HomePageWidgetDriver({required super.resolver});
 
   String get title => _title;
 
-  onButtonPressed(BuildContext context) {}
+  onButtonPressed(BuildContext context) {
+    final route = SecondPageRoute();
+    _navigator.navigateTo(
+      context,
+      route,
+    );
+  }
+
+  @override
+  void didUpdateBuildContext(BuildContext context) {
+    _navigator = resolver.resolve<ISoNavigator>(context);
+  }
 }
 
 class HomePageWidgetDriverProvider extends WidgetDriverProvider<HomePageWidgetDriver> {
