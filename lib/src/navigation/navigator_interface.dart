@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 abstract class ISoNavigator {
-  navigateTo(
+  to(
     BuildContext context,
     MaterialPageRoute route,
   );
 
-  navigateBack(
+  back(
     BuildContext context,
   );
 }
