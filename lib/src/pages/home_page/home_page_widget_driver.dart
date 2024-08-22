@@ -6,7 +6,7 @@ import '../../widget_driver/widget_driver.dart';
 import '../second_page/second_page.dart';
 
 class HomePageWidgetDriver extends SoWidgetDriver {
-  final String _title = 'hello, world!';
+  late String _title = 'hello,';
   late ISoNavigator _navigator;
 
   HomePageWidgetDriver({required super.resolver});
@@ -19,6 +19,8 @@ class HomePageWidgetDriver extends SoWidgetDriver {
       context,
       route,
     );
+
+    _title = 'world!';
   }
 
   @override

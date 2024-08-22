@@ -5,7 +5,6 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:widget_driver_demo/src/pages/home_page/home_page.dart';
@@ -46,6 +45,32 @@ void main() {
             ),
           ).called(
             1,
+          );
+        },
+      );
+
+      test(
+        'should update title when navigate',
+        () {
+          // arrange
+          final context = BuildContextMock();
+          final navigator = SoNavigatorMock();
+          final resolver = SoResolverMock();
+          when(
+            () => resolver.resolve<ISoNavigator>(context),
+          ).thenReturn(
+            navigator,
+          );
+          final driver = HomePageWidgetDriver(resolver: resolver);
+          driver.didUpdateBuildContext(context);
+
+          // act
+          driver.onButtonPressed(context);
+
+          // assert
+          expect(
+            driver.title,
+            'world!',
           );
         },
       );
