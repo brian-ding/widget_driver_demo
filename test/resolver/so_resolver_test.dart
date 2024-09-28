@@ -7,7 +7,7 @@ import 'package:widget_driver_demo/src/resolver/so_resolver.dart';
 class _ContainerWidget extends StatelessWidget {
   final void Function(BuildContext) buildCallback;
 
-  _ContainerWidget({
+  const _ContainerWidget({
     required this.buildCallback,
   });
 

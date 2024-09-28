@@ -4,7 +4,6 @@ import 'package:mocktail/mocktail.dart';
 import 'package:widget_driver/widget_driver.dart';
 import 'package:widget_driver_demo/src/pages/home_page/home_page.dart';
 import 'package:widget_driver_demo/src/pages/home_page/home_page_widget.dart';
-import 'package:widget_driver_demo/src/pages/home_page/home_page_widget_driver.dart';
 
 import '../../mocks/home_page_widget_driver_mock.dart';
 import '../../mocks/mocks.dart';
