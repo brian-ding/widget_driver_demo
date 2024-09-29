@@ -18,7 +18,9 @@ class GridItem implements Clickable {
   void onClick(BuildContext context) {
     final navigator = context.read<ISoNavigator>();
 
-    final route = SecondPageRoute();
+    final route = SecondPageRoute(
+      item: this,
+    );
     navigator.to(
       context,
       route,

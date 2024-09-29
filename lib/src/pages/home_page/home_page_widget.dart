@@ -14,21 +14,29 @@ class HomePageWidget extends DrivableWidget<HomePageWidgetDriver> {
       appBar: AppBar(
         title: const Text('Home Page'),
       ),
-      body: Column(
-        children: [
-          Text(
-            driver.title,
-          ),
-          ElevatedButton(
-            key: const Key('button-key'),
-            onPressed: () => driver.onButtonPressed(
-              context,
+      body: GridView.count(
+        crossAxisCount: 3,
+        children: driver.items.map((e) {
+          return SizedBox(
+            width: 100,
+            height: 100,
+            child: GestureDetector(
+              onTap: () => e.onClick(context),
+              child: Column(
+                children: [
+                  Text(
+                    e.title,
+                    style: const TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(e.description),
+                ],
+              ),
             ),
-            child: const Text(
-              'Press',
-            ),
-          ),
-        ],
+          );
+        }).toList(),
       ),
     );
   }
