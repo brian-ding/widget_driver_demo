@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class SoResolver {
@@ -21,5 +21,11 @@ class SoResolver {
     );
 
     return resolvedObject;
+  }
+
+  NavigatorState readNavigator(BuildContext context) {
+    final navigatorState = Navigator.of(context);
+
+    return navigatorState;
   }
 }

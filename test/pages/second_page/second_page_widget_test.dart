@@ -10,11 +10,11 @@ main() {
         'should render column',
         (widgetTester) async {
           // arrange
-          const widget = SecondPageWidget();
+          final widget = SecondPageWidget();
 
           // act
           await widgetTester.pumpWidget(
-            const MaterialApp(
+            MaterialApp(
               home: widget,
             ),
           );

@@ -9,20 +9,41 @@ class SoNavigator implements ISoNavigator {
     required SoResolver resolver,
   }) : _resolver = resolver;
 
+  // @override
+  // to<T>(
+  //   BuildContext context,
+  //   MaterialPageRoute route,
+  // ) {
+  //   final navigator = _resolver.readNavigator(context);
+  //   navigator.push(route);
+  // }
+
   @override
-  to(
+  Future<void> to<TResult>(
     BuildContext context,
-    MaterialPageRoute route,
-  ) {
-    final navigator = _resolver.read<NavigatorState>(context);
-    navigator.push(route);
+    MaterialPageRoute route, {
+    OnBack<TResult>? onBack,
+  }) async {
+    final navigator = _resolver.readNavigator(context);
+    final argument = await navigator.push(route);
+    if (onBack != null) {
+      await onBack(argument);
+    }
   }
 
   @override
   back(
     BuildContext context,
   ) {
-    final navigator = _resolver.read<NavigatorState>(context);
+    final navigator = _resolver.readNavigator(context);
     navigator.pop();
+  }
+
+  @override
+  showSnackbar(
+    BuildContext context,
+    SnackBar snackbar,
+  ) {
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
   }
 }
